@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-labelledby="title desc">
+  <title id="title">Creator Arena logo</title>
+  <desc id="desc">Stylized CA emblem with play symbol and Creator Arena wordmark.</desc>
+  <defs>
+    <linearGradient id="brand" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#D000FF"/>
+      <stop offset="48%" stop-color="#6D4CFF"/>
+      <stop offset="100%" stop-color="#00C8FF"/>
+    </linearGradient>
+    <linearGradient id="brand2" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#D000FF"/>
+      <stop offset="55%" stop-color="#6D4CFF"/>
+      <stop offset="100%" stop-color="#00D9FF"/>
+    </linearGradient>
+  </defs>
+
+  <!-- CA emblem -->
+  <g fill="none" stroke="url(#brand)" stroke-width="72" stroke-linecap="butt" stroke-linejoin="miter">
+    <path d="M 455 265 A 155 155 0 1 0 455 555"/>
+  </g>
+
+  <!-- Stylized A -->
+  <path fill="url(#brand)" d="M 585 570 L 742 245 L 900 570 L 818 570 L 742 407 L 666 570 Z"/>
+  <path fill="#09061B" d="M 705 485 L 742 407 L 779 485 Z"/>
+
+  <!-- Integrated play button -->
+  <path fill="url(#brand2)" d="M 535 358 Q 535 344 548 352 L 630 401 Q 642 409 630 417 L 548 466 Q 535 474 535 460 Z"/>
+
+  <!-- Wordmark -->
+  <text x="600" y="710" text-anchor="middle"
+        font-family="Inter, Arial, sans-serif" font-size="112" font-weight="800"
+        letter-spacing="10" fill="#FFFFFF">CREATOR</text>
+
+  <text x="600" y="810" text-anchor="middle"
+        font-family="Inter, Arial, sans-serif" font-size="68" font-weight="800"
+        letter-spacing="30" fill="url(#brand2)">ARENA</text>
+</svg>
