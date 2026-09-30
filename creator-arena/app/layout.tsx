@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { Sidebar } from "@/components/Sidebar";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -13,46 +14,38 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Creator Arena",
-  description: "The ultimate platform for creators to showcase their work, battle for the top spot, and build an audience.",
-  keywords: ["creator", "arena", "platform", "portfolio", "battle", "showcase", "creators"],
-  authors: [{ name: "Creator Arena Team" }],
+  title: "Creator Arena | Play the internet. Test your ideas. See what wins.",
+  description: "A gamified creator intelligence network. Compete to predict what wins, test your thumbnails and hooks before publishing, and explore trend relations.",
+  keywords: ["Creator Arena", "A/B Testing", "Thumbnails", "YouTube Creators", "Trends", "Creator Economy", "Prediction Game", "Relation Map"],
   openGraph: {
-    title: "Creator Arena",
-    description: "The ultimate platform for creators to showcase their work, battle for the top spot, and build an audience.",
-    url: "https://creator-arena.com",
-    siteName: "Creator Arena",
-    locale: "uk_UA",
+    title: "Creator Arena | Play the internet.",
+    description: "Compete to predict what wins, test your ideas before publishing, and explore trend relations.",
     type: "website",
+    locale: "uk_UA",
+    siteName: "Creator Arena",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Creator Arena",
-    description: "The ultimate platform for creators to showcase their work, battle for the top spot, and build an audience.",
+    title: "Creator Arena | Play the internet.",
+    description: "Test your ideas. See what is winning — and why.",
   },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
-    },
-  },
-  icons: {
-    icon: '/creator-arena-logo.svg'
-  }
 };
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
   return (
-    <html
-      lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
-    >
-      <body className="min-h-full flex flex-col">{children}</body>
+    <html lang="uk" className={`${geistSans.variable} ${geistMono.variable}`}>
+      <body className="min-h-screen flex text-text-main bg-bg-main overflow-x-hidden">
+        <Sidebar />
+        <main className="flex-1 flex flex-col ml-[260px] min-w-0">
+          <div className="p-8 pb-14 animate-fade-in">
+            {children}
+          </div>
+        </main>
+      </body>
     </html>
   );
 }
