@@ -27,7 +27,7 @@ const mockUser = {
 };
 
 const mockDailyArena = {
-  current: 0,
+  current: 5,
   total: 10,
   reward: 15
 };
@@ -172,9 +172,9 @@ export function Sidebar() {
                       <item.icon size={15} className="text-[#a78bfa]" /> {item.name}
                     </Link>
                   ))}
-                    {/* Dividing line */}
-                  <div className="h-px bg-white/10 my-1 mx-2"></div> 
-                  
+                  {/* Dividing line */}
+                  <div className="h-px bg-white/10 my-1 mx-2"></div>
+
                   <button onClick={() => setIsProfileOpen(false)} className={`${dropdownItemClass} text-[#ff4b4b] text-left w-full`}>
                     <LogOut size={15} /> Log out
                   </button>
