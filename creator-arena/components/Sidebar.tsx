@@ -69,7 +69,7 @@ export function Sidebar() {
   ];
 
   return (
-    <aside className="fixed left-0 top-0 w-200px h-screen bg-[#0d0d12] border-r border-white/3 flex flex-col z-40 text-sm font-medium">
+    <aside className="fixed left-0 top-0 w-65 h-screen bg-[#0d0d12] border-r border-white/3 flex flex-col z-40 text-sm font-medium">
 
       {/* Header Logo */}
       <div className="p-4 flex items-center gap-3">
@@ -86,7 +86,7 @@ export function Sidebar() {
       </div>
 
       {/* Navigation */}
-      <nav className="flex-1 px-4 py-2 space-y-1 overflow-hidden">
+      <nav className="flex-1 px-4 py-1 overflow-hidden">
         {navItems.map((item) => {
           const isActive = pathname === item.href;
 
@@ -161,7 +161,7 @@ export function Sidebar() {
                 <>
                   {[
                     { id: 1, name: "Profile", href: "/profile", icon: User },
-                    { id: 2, name: "Settings", href: "/settings", icon: Settings },
+                    { id: 2, name: "Settings", href: "/settings", icon: Settings }
                   ].map((item) => (
                     <Link
                       key={item.id}
