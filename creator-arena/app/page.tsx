@@ -1,6 +1,7 @@
 import { CreatorArenaBanner } from "@/components/home/CreatorArenaBanner";
 import { DailyPulseCard } from "@/components/home/DailyPulseCard";
 import { TrendingSection } from "@/components/home/TrendingSection";
+import { DashboardWidgets } from "@/components/home/DashboardWidgets";
 
 export default function Home() {
   return (
@@ -10,6 +11,7 @@ export default function Home() {
         <DailyPulseCard />
       </div>
       <TrendingSection />
+      <DashboardWidgets />
     </div>
   );
 }
