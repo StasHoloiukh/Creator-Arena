@@ -7,7 +7,7 @@ import { getLevelData } from "@/lib/xp";
 // Mock user progress data (this will come from DB later)
 const mockUserProgress = {
     streak: 8,
-    totalXp: 1500, // DB should only store total XP
+    totalXp: 1500,
     credits: 152
 };
 
@@ -22,12 +22,12 @@ export function Topbar() {
         <header className="h-17 w-full flex items-center justify-between px-6 border-b border-white/5 bg-[#0a0a0f] sticky top-0 z-30">
 
             {/* Left: Search */}
-            <div className="flex-1 flex items-center">
+            <div className="flex-1">
                 <div className="relative w-full max-w-lg">
                     <Search size={16} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-[#8a8a99]" />
                     <input
                         type="text"
-                        placeholder="Пошук тем, creator-ів, трендів..."
+                        placeholder="Searching for topics, creators, trends..."
                         className="w-full h-10 bg-[#12111a] border border-white/5 rounded-xl pl-10 pr-12 text-sm text-white placeholder:text-[#8a8a99] focus:outline-none focus:border-white/10 focus:ring-1 focus:ring-white/10 transition-all"
                     />
                 </div>
@@ -37,16 +37,16 @@ export function Topbar() {
             <div className="flex items-stretch gap-3">
 
                 {/* Streak Badge */}
-                <div className="flex items-center justify-center gap-1.5 px-3 rounded-full bg-[#12111a] border border-orange-500/20 shadow-[0_0_10px_rgba(249,115,22,0.1)] cursor-pointer hover:bg-white/5 transition-colors group">
+                <div className="flex items-center gap-1.5 px-3 rounded-full bg-[#12111a] border border-orange-500/20 shadow-[0_0_10px_rgba(249,115,22,0.1)] cursor-pointer hover:bg-white/5 transition-colors group">
                     <Flame size={16} className="text-orange-500 fill-orange-500/20 group-hover:scale-110 transition-transform" />
                     <span className="text-[13px] font-bold text-white group-hover:text-orange-50 transition-colors">{progress.streak}</span>
                 </div>
 
                 {/* Level / XP Badge */}
-                <div className="flex flex-col justify-center px-3 py-1.5 rounded-xl bg-[#12111a] border border-purple-500/20 shadow-[0_0_10px_rgba(167,139,250,0.05)] cursor-pointer hover:bg-white/5 transition-colors min-w-[130px]">
+                <div className="flex flex-col px-3 py-1.5 rounded-xl bg-[#12111a] border border-purple-500/20 shadow-[0_0_10px_rgba(167,139,250,0.05)] cursor-pointer hover:bg-white/5 transition-colors min-w-[130px]">
                     <div className="flex items-center justify-between mb-1.5">
                         <span className="text-[11px] font-black text-[#a78bfa] tracking-wider px-5">LVL {levelData.level}</span>
-                        <span className="text-[10px] text-[#8a8a99] font-medium">{levelData.totalXp.toLocaleString()} / {levelData.nextLevelBaseXp.toLocaleString()} XP</span>
+                        <span className="text-[10px] text-[#8a8a99] font-medium">{levelData.totalXp.toLocaleString("en-US")} / {levelData.nextLevelBaseXp.toLocaleString("en-US")} XP</span>
                     </div>
 
                     <div className="w-full bg-[#272733] rounded-full h-1.5 overflow-hidden">
@@ -60,7 +60,7 @@ export function Topbar() {
                 </div>
 
                 {/* Credits Badge */}
-                <div className="flex items-center justify-center gap-1.5 px-3 rounded-full bg-[#12111a] border border-yellow-500/20 shadow-[0_0_10px_rgba(250,204,21,0.05)] cursor-pointer hover:bg-white/5 transition-colors group">
+                <div className="flex items-center gap-1.5 px-3 rounded-full bg-[#12111a] border border-yellow-500/20 shadow-[0_0_10px_rgba(250,204,21,0.05)] cursor-pointer hover:bg-white/5 transition-colors group">
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-yellow-400 drop-shadow-[0_0_5px_rgba(250,204,21,0.5)] group-hover:rotate-12 transition-transform">
                         <path d="M12 2L14.5 9.5L22 12L14.5 14.5L12 22L9.5 14.5L2 12L9.5 9.5L12 2Z" fill="currentColor" />
                     </svg>

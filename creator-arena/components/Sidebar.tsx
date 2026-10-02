@@ -101,7 +101,7 @@ export function Sidebar() {
             >
               <div className="flex items-center gap-3.5">
                 <item.icon size={18} strokeWidth={isActive ? 2.5 : 2} className={isActive ? "text-[#a78bfa]" : "text-[#6b6b7a] group-hover:text-white transition-colors"} />
-                <span className={`font-semibold ${isActive ? "text-white" : ""}`}>{item.name}</span>
+                <span className="font-semibold">{item.name}</span>
               </div>
               {item.badge && (
                 <span className="text-[9px] font-bold tracking-wider bg-[#103a27] text-[#34d399] px-2 py-0.5 rounded-full uppercase">
@@ -141,7 +141,7 @@ export function Sidebar() {
 
             <Link
               href="/arena"
-              className="block w-full py-2.5 px-4 bg-[#1e1b30] hover:bg-[#2a2444] border border-white/5 text-center text-white text-sm font-bold rounded-xl transition-colors"
+              className="block w-full py-2.5 px-4 bg-[#1e1b30] hover:bg-[#2a2444] border border-white/5 text-center text-white font-bold rounded-xl transition-colors"
             >
               Continue
             </Link>
@@ -154,7 +154,7 @@ export function Sidebar() {
 
         {/* Simple Dropdown Menu */}
         {isProfileOpen && (
-          <div className="absolute bottom-full left-4 right-4 mb-2 bg-[#1e1b30] border border-white/10 rounded-xl shadow-xl z-50 flex flex-col py-1.5" style={{ display: "flex" }}>
+          <div className="absolute bottom-full left-4 right-4 mb-2 bg-[#1e1b30] border border-white/10 rounded-xl shadow-xl z-50 flex flex-col py-1.5">
             {(() => {
               const dropdownItemClass = "px-3 py-2 text-[13px] hover:bg-white/10 transition-colors flex items-center gap-2";
               return (
@@ -190,9 +190,9 @@ export function Sidebar() {
             console.log("Menu button clicked! State will be:", !isProfileOpen);
             setIsProfileOpen(!isProfileOpen);
           }}
-          className="w-full flex items-center justify-between p-1.5 rounded-xl hover:bg-white/5 transition-colors cursor-pointer"
+          className="w-full flex items-center justify-between p-1.5 rounded-xl hover:bg-white/5 transition-colors"
         >
-          <div className="flex items-center gap-3 pointer-events-none">
+          <div className="flex items-center gap-3">
             <div className={`w-9 h-9 rounded-full ${user.color} flex items-center justify-center text-white font-bold shadow-sm`}>
               {user.initials}
             </div>
@@ -201,7 +201,7 @@ export function Sidebar() {
               <span className="text-[11px] text-[#8a8a99]">{user.role}</span>
             </div>
           </div>
-          <MoreHorizontal size={16} className="text-[#6b6b7a] pointer-events-none" />
+          <MoreHorizontal size={16} className="text-[#6b6b7a]" />
         </button>
       </div>
 
