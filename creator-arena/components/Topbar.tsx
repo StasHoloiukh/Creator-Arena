@@ -5,7 +5,7 @@ import { Search, Flame } from "lucide-react";
 import { getLevelData } from "@/lib/xp";
 
 // Mock user progress data (this will come from DB later)
-const mockUserProgress = {
+const mockUser = {
     streak: 8,
     totalXp: 1500,
     credits: 152
@@ -13,7 +13,7 @@ const mockUserProgress = {
 
 export function Topbar() {
     // Use state to hold the progress, making it reactive and ready for DB integration
-    const [progress, setProgress] = useState(mockUserProgress);
+    const [progress] = useState(mockUser);
 
     // Calculate current level and XP progress dynamically
     const levelData = getLevelData(progress.totalXp);
@@ -43,7 +43,7 @@ export function Topbar() {
                 </div>
 
                 {/* Level / XP Badge */}
-                <div className="flex flex-col px-3 py-1.5 rounded-xl bg-[#12111a] border border-purple-500/20 shadow-[0_0_10px_rgba(167,139,250,0.05)] cursor-pointer hover:bg-white/5 transition-colors min-w-[130px]">
+                <div className="flex flex-col px-3 py-1.5 rounded-xl bg-[#12111a] border border-purple-500/20 shadow-[0_0_10px_rgba(167,139,250,0.05)] cursor-pointer hover:bg-white/5 transition-colors min-w-32.5">
                     <div className="flex items-center justify-between mb-1.5">
                         <span className="text-[11px] font-black text-[#a78bfa] tracking-wider px-5">LVL {levelData.level}</span>
                         <span className="text-[10px] text-[#8a8a99] font-medium">{levelData.totalXp.toLocaleString("en-US")} / {levelData.nextLevelBaseXp.toLocaleString("en-US")} XP</span>

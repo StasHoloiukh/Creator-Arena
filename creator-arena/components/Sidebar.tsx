@@ -18,27 +18,35 @@ import {
 
 import { useState, useRef, useEffect } from "react";
 
+import { getLevelData } from "@/lib/xp";
+
 // Mock data to demonstrate dynamic behavior
 const mockUser = {
   name: "Demo Creator",
   initials: "N",
-  role: "Level 7 • Scout",
-  color: "bg-blue-500"
+  role: "Scout",
+  color: "bg-blue-500",
+  totalXp: 1500
 };
 
 const mockDailyArena = {
   current: 5,
   total: 10,
-  reward: 15
+  rewardCredits: 15,
 };
 
+
+
 export function Sidebar() {
+  const [progress] = useState(mockUser);
+  const levelData = getLevelData(progress.totalXp);
+
   const pathname = usePathname();
 
   //NEED TO CHANGE AFTER ADDING DB
   // These could be fetched from a global store/context later
-  const [user, setUser] = useState(mockUser);
-  const [dailyArena, setDailyArena] = useState(mockDailyArena);
+  const [user] = useState(mockUser);
+  const [dailyArena] = useState(mockDailyArena);
   const [isProfileOpen, setIsProfileOpen] = useState(false);
 
   const menuRef = useRef<HTMLDivElement>(null);
@@ -136,7 +144,7 @@ export function Sidebar() {
             </div>
 
             <p className="text-[12px] text-[#8a8a99] leading-snug mb-4">
-              Finish {dailyArena.total} rounds and claim +{dailyArena.reward} Credits.
+              Finish {dailyArena.total} rounds and claim +{dailyArena.rewardCredits} Credits.
             </p>
 
             <Link
@@ -198,7 +206,7 @@ export function Sidebar() {
             </div>
             <div className="flex flex-col text-left">
               <span className="text-[13px] font-bold text-white">{user.name}</span>
-              <span className="text-[11px] text-[#8a8a99]">{user.role}</span>
+              <span className="text-[11px] text-[#8a8a99]">Level {levelData.level} • {user.role}</span>
             </div>
           </div>
           <MoreHorizontal size={16} className="text-[#6b6b7a]" />
