@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import { ArrowUpRight, Music, Radio } from "lucide-react";
 
@@ -25,13 +27,13 @@ export function DashboardWidgets() {
             <div className="w-full flex-1 rounded-2xl bg-linear-to-b from-[#192b45] to-[#0a0a0f] border border-white/5 relative overflow-hidden shadow-lg transition-all duration-300 group-hover:border-white/40 group-hover:-translate-y-1">
               <div className="absolute top-5 right-5 w-7 h-7 rounded-full bg-yellow-500 shadow-[0_0_15px_rgba(234,179,8,0.5)]" />
               <div className="absolute bottom-4 left-0 w-full text-center">
-                 <p className="text-[11px] font-black text-white/90 tracking-wider drop-shadow-md">I SURVIVED 100 DAYS</p>
+                <p className="text-[11px] font-black text-white/90 tracking-wider drop-shadow-md">I SURVIVED 100 DAYS</p>
               </div>
             </div>
             <p className="text-[10px] font-medium text-[#8a8a99] text-center mt-3">A • Minimal • high contrast</p>
           </Link>
-          
-          <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-[80%] text-[12px] font-black text-[#8a8a99] bg-[#12111a] px-2 py-1 rounded-full z-10 border border-white/5">
+
+          <div className="absolute left-1/2 top-1/2 -translate-x-1/2 translate-y-[-80%] text-[12px] font-black text-[#8a8a99] bg-[#12111a] px-2 py-1 rounded-full z-10 border border-white/5">
             VS
           </div>
 
@@ -40,7 +42,7 @@ export function DashboardWidgets() {
             <div className="w-full flex-1 rounded-2xl bg-linear-to-b from-[#311c1c] to-[#0a0a0f] border border-white/5 relative overflow-hidden shadow-lg transition-all duration-300 group-hover:border-white/40 group-hover:-translate-y-1">
               <div className="absolute top-5 left-5 w-9 h-9 rounded-full bg-orange-500 shadow-[0_0_15px_rgba(249,115,22,0.5)]" />
               <div className="absolute bottom-4 left-0 w-full text-center">
-                 <p className="text-[11px] font-black text-white/90 tracking-wider leading-tight drop-shadow-md">100 DAYS = 100<br/>BOSSES</p>
+                <p className="text-[11px] font-black text-white/90 tracking-wider leading-tight drop-shadow-md">100 DAYS = 100<br />BOSSES</p>
               </div>
             </div>
             <p className="text-[10px] font-medium text-[#8a8a99] text-center mt-3">B • Text-heavy • action</p>
@@ -55,7 +57,7 @@ export function DashboardWidgets() {
             <span className="text-[11px] font-black text-[#8a8a99] tracking-widest uppercase mb-1 block">
               Your Signals
             </span>
-            <h2 className="text-[16px] font-bold text-white">Most powerful insights</h2>
+            <h2 className="text-[16px] font-bold text-white">Most powerful inside info</h2>
           </div>
           <span className="text-[#8a8a99] hover:text-white cursor-pointer">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M15 3h6v6" /><path d="M9 21v-9" /><path d="M21 3l-9 9" /></svg>
@@ -111,7 +113,7 @@ export function DashboardWidgets() {
             <h2 className="text-[16px] font-bold text-white">Активні тести</h2>
           </div>
           <Link href="/campaigns" className="text-[12px] font-medium text-[#8a8a99] hover:text-white transition-colors">
-            Усі &rarr;
+            All &rarr;
           </Link>
         </div>
 

@@ -35,8 +35,6 @@ const mockDailyArena = {
   rewardCredits: 15,
 };
 
-
-
 export function Sidebar() {
   const [progress] = useState(mockUser);
   const levelData = getLevelData(progress.totalXp);
