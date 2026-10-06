@@ -71,7 +71,7 @@ export function Sidebar() {
     { id: 4, name: "Music Arena", href: "/music", icon: Music, badge: "LIVE" },
     { id: 5, name: "Relation Map", href: "/map", icon: CircleDot },
     { id: 6, name: "Discover", href: "/discover", icon: Sparkles },
-    { id: 7, name: "Campaigns", href: "/campaigns", icon: ArrowUpRight }
+    { id: 7, name: "Actual News", href: "/news", icon: ArrowUpRight }
   ];
 
   return (

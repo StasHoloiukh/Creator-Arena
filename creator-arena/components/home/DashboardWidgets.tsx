@@ -1,7 +1,31 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowUpRight, Music, Radio } from "lucide-react";
+import { getCategoryStyle } from "@/lib/categoryStyles";
+
+const mockSignals = [
+  {
+    id: 1,
+    title: "Minimal thumbnails",
+    subtitle: "winning text-heavy in Gaming",
+    value: "+18%",
+    category: "Gaming"
+  },
+  {
+    id: 2,
+    title: "8-12s hooks",
+    subtitle: "better kept in Electronic",
+    value: "+11%",
+    category: "Music"
+  },
+  {
+    id: 3,
+    title: "AI Agents",
+    subtitle: "rapidly converging with game development",
+    value: "0.82",
+    category: "Tech & AI"
+  }
+];
 
 export function DashboardWidgets() {
   return (
@@ -57,49 +81,33 @@ export function DashboardWidgets() {
             <span className="text-[11px] font-black text-[#8a8a99] tracking-widest uppercase mb-1 block">
               Your Signals
             </span>
-            <h2 className="text-[16px] font-bold text-white">Most powerful inside info</h2>
+            <h2 className="text-[16px] font-bold text-white">Actual news</h2>
           </div>
-          <span className="text-[#8a8a99] hover:text-white cursor-pointer">
+          <Link href="/news" className="text-[#8a8a99] hover:text-white cursor-pointer">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M15 3h6v6" /><path d="M9 21v-9" /><path d="M21 3l-9 9" /></svg>
-          </span>
+          </Link>
         </div>
 
         <div className="flex flex-col gap-5 mt-2">
-          {/* Signal 1 */}
-          <div className="flex items-center gap-3 bg-white/5 p-3 rounded-2xl hover:bg-white/10 transition-colors cursor-pointer">
-            <div className="w-10 h-10 rounded-xl bg-[#1a1825] flex items-center justify-center text-[#a78bfa]">
-              <ArrowUpRight size={18} strokeWidth={2.5} />
-            </div>
-            <div className="flex-1">
-              <h3 className="text-[13px] font-bold text-white">Minimal thumbnails</h3>
-              <p className="text-[11px] text-[#8a8a99]">winning text-heavy у Gaming</p>
-            </div>
-            <span className="text-[13px] font-bold text-emerald-400">+18%</span>
-          </div>
-
-          {/* Signal 2 */}
-          <div className="flex items-center gap-3 bg-white/5 p-3 rounded-2xl hover:bg-white/10 transition-colors cursor-pointer">
-            <div className="w-10 h-10 rounded-xl bg-[#1a1825] flex items-center justify-center text-[#a78bfa]">
-              <Music size={18} strokeWidth={2.5} />
-            </div>
-            <div className="flex-1">
-              <h3 className="text-[13px] font-bold text-white">8-12s hooks</h3>
-              <p className="text-[11px] text-[#8a8a99]">better kept in Electronic</p>
-            </div>
-            <span className="text-[13px] font-bold text-emerald-400">+11%</span>
-          </div>
-
-          {/* Signal 3 */}
-          <div className="flex items-center gap-3 bg-white/5 p-3 rounded-2xl hover:bg-white/10 transition-colors cursor-pointer">
-            <div className="w-10 h-10 rounded-xl bg-[#1a1825] flex items-center justify-center text-[#a78bfa]">
-              <Radio size={18} strokeWidth={2.5} />
-            </div>
-            <div className="flex-1">
-              <h3 className="text-[13px] font-bold text-white">AI Agents</h3>
-              <p className="text-[11px] text-[#8a8a99]"> rapidly converging with game development</p>
-            </div>
-            <span className="text-[13px] font-bold text-emerald-400">0.82</span>
-          </div>
+          {mockSignals.map((signal) => {
+            const style = getCategoryStyle(signal.category);
+            return (
+              <Link href='/news' key={signal.id} className="flex items-center gap-3 bg-white/5 p-3 rounded-2xl hover:bg-white/10 transition-colors cursor-pointer">
+                <div
+                  className="w-10 h-10 rounded-xl bg-[#1a1825] flex items-center justify-center"
+                  style={{ color: style.color }}
+                  
+                >
+                  {style.icon}
+                </div>
+                <div className="flex-1">
+                  <h3 className="text-[13px] font-bold text-white">{signal.title}</h3>
+                  <p className="text-[11px] text-[#8a8a99]">{signal.subtitle}</p>
+                </div>
+                <span className="text-[13px] font-bold text-emerald-400">{signal.value}</span>
+              </Link>
+            );
+          })}
         </div>
       </div>
 
@@ -110,9 +118,9 @@ export function DashboardWidgets() {
             <span className="text-[11px] font-black text-[#8a8a99] tracking-widest uppercase mb-1 block">
               My Campaigns
             </span>
-            <h2 className="text-[16px] font-bold text-white">Активні тести</h2>
+            <h2 className="text-[16px] font-bold text-white">Active tests</h2>
           </div>
-          <Link href="/campaigns" className="text-[12px] font-medium text-[#8a8a99] hover:text-white transition-colors">
+          <Link href="/lab" className="text-[12px] font-medium text-[#8a8a99] hover:text-white transition-colors">
             All &rarr;
           </Link>
         </div>
@@ -154,6 +162,19 @@ export function DashboardWidgets() {
             </div>
             <div className="h-1.5 w-full bg-[#1a1825] rounded-full overflow-hidden">
               <div className="h-full bg-indigo-500 rounded-full w-full" />
+            </div>
+          </div>
+
+            {/* Campaign 4 */}
+          <div>
+            <div className="flex justify-between items-center mb-3">
+              <h3 className="text-[13px] font-bold text-white">
+                Fc 27 vs eFootball <span className="text-[11px] text-[#8a8a99] font-medium ml-1">Gaming</span>
+              </h3>
+              <span className="text-[10px] font-bold text-yellow-500 border  border-yellow-500/30 px-2 py-0.5 rounded-full">draft</span>
+            </div>
+            <div className="h-1.5 w-full bg-[#1a1825] rounded-full overflow-hidden">
+              <div className="h-full bg-indigo-500 rounded-full w-[0%]" />
             </div>
           </div>
         </div>
