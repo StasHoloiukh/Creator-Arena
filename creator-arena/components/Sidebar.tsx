@@ -13,7 +13,8 @@ import {
   MoreHorizontal,
   User,
   Settings,
-  LogOut
+  LogOut,
+  X
 } from "lucide-react";
 
 import { useState, useRef, useEffect } from "react";
@@ -46,6 +47,7 @@ export function Sidebar() {
   const [user] = useState(mockUser);
   const [dailyArena] = useState(mockDailyArena);
   const [isProfileOpen, setIsProfileOpen] = useState(false);
+  const [isMobileOpen, setIsMobileOpen] = useState(false);
 
   const menuRef = useRef<HTMLDivElement>(null);
 
@@ -64,6 +66,12 @@ export function Sidebar() {
     };
   }, [isProfileOpen]);
 
+  useEffect(() => {
+    const handleToggle = () => setIsMobileOpen(prev => !prev);
+    window.addEventListener('toggle-sidebar', handleToggle);
+    return () => window.removeEventListener('toggle-sidebar', handleToggle);
+  }, []);
+
   const navItems = [
     { id: 1, name: "Review", href: "/", icon: Home },
     { id: 2, name: "Arena", href: "/arena", icon: Swords, badge: "LIVE" },
@@ -75,24 +83,42 @@ export function Sidebar() {
   ];
 
   return (
-    <aside className="fixed left-0 top-0 w-65 h-screen bg-[#0d0d12] border-r border-white/3 flex flex-col z-40 text-sm font-medium">
+    <>
+      {/* Mobile Backdrop */}
+      {isMobileOpen && (
+        <div 
+          className="fixed inset-0 bg-black/60 z-40 md:hidden backdrop-blur-sm" 
+          onClick={() => setIsMobileOpen(false)} 
+        />
+      )}
 
-      {/* Header Logo */}
-      <div className="p-4 flex items-center gap-3">
-        <div>
-          <img src="/creator-arena-logo.svg" alt="Creator Arena Logo" width={60} height={60} />
+      <aside className={`fixed left-0 top-0 w-65 h-screen bg-[#0d0d12] border-r border-white/3 flex flex-col z-50 text-sm font-medium transition-transform duration-300 md:translate-x-0 ${isMobileOpen ? 'translate-x-0' : '-translate-x-full'}`}>
+
+        {/* Header Logo */}
+        <div className="p-4 flex items-center justify-between gap-3">
+          <div className="flex items-center gap-3">
+            <div>
+              <img src="/creator-arena-logo.svg" alt="Creator Arena Logo" width={60} height={60} />
+            </div>
+
+            <div className="flex flex-col">
+              <Link href="/" className="text-[15px] font-black tracking-wide text-white flex items-center gap-1.5">
+                CREATOR <span className="text-[#a78bfa]">ARENA</span>
+              </Link>
+              <span className="text-[11px] text-[#8a8a99]">Play • Build • Explore</span>
+            </div>
+          </div>
+          
+          <button 
+            className="md:hidden text-[#8a8a99] hover:text-white p-1"
+            onClick={() => setIsMobileOpen(false)}
+          >
+            <X size={20} />
+          </button>
         </div>
 
-        <div className="flex flex-col">
-          <Link href="/" className="text-[15px] font-black tracking-wide text-white flex items-center gap-1.5">
-            CREATOR <span className="text-[#a78bfa]">ARENA</span>
-          </Link>
-          <span className="text-[11px] text-[#8a8a99]">Play • Build • Explore</span>
-        </div>
-      </div>
-
-      {/* Navigation */}
-      <nav className="flex-1 px-4 py-1 overflow-hidden">
+        {/* Navigation */}
+        <nav className="flex-1 px-4 py-1 overflow-auto">
         {navItems.map((item) => {
           const isActive = pathname === item.href;
 
@@ -100,6 +126,7 @@ export function Sidebar() {
             <Link
               key={item.id}
               href={item.href}
+              onClick={() => setIsMobileOpen(false)}
               className={`flex items-center justify-between px-3 py-3 rounded-xl transition-all group ${isActive
                 ? "bg-[#181328] text-white"
                 : "text-[#8a8a99] hover:bg-white/5 hover:text-white"
@@ -211,6 +238,7 @@ export function Sidebar() {
         </button>
       </div>
 
-    </aside>
+      </aside>
+    </>
   );
 }

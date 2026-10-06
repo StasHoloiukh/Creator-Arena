@@ -43,7 +43,7 @@ export default function RootLayout({
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
       <body className="min-h-screen flex text-text-main bg-bg-main">
         <Sidebar />
-        <main className="flex-1 flex-col ml-62.5 min-w-0">
+        <main className="flex-1 flex flex-col ml-0 md:ml-62.5 min-w-0 w-full transition-all duration-300">
           <Topbar />
           <div className="overflow-auto">
             {children}
