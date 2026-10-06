@@ -87,12 +87,12 @@ export function Sidebar() {
       {/* Mobile Backdrop */}
       {isMobileOpen && (
         <div 
-          className="fixed inset-0 bg-black/60 z-40 md:hidden backdrop-blur-sm" 
+          className="fixed inset-0 bg-black/60 z-40 lg:hidden backdrop-blur-sm" 
           onClick={() => setIsMobileOpen(false)} 
         />
       )}
 
-      <aside className={`fixed left-0 top-0 w-65 h-screen bg-[#0d0d12] border-r border-white/3 flex flex-col z-50 text-sm font-medium transition-transform duration-300 md:translate-x-0 ${isMobileOpen ? 'translate-x-0' : '-translate-x-full'}`}>
+      <aside className={`fixed left-0 top-0 w-65 h-[100dvh] bg-[#0d0d12] border-r border-white/3 flex flex-col z-50 text-sm font-medium transition-transform duration-300 lg:translate-x-0 ${isMobileOpen ? 'translate-x-0' : '-translate-x-full'}`}>
 
         {/* Header Logo */}
         <div className="p-4 flex items-center justify-between gap-3">
@@ -110,7 +110,7 @@ export function Sidebar() {
           </div>
           
           <button 
-            className="md:hidden text-[#8a8a99] hover:text-white p-1"
+            className="lg:hidden text-[#8a8a99] hover:text-white p-1"
             onClick={() => setIsMobileOpen(false)}
           >
             <X size={20} />
@@ -118,7 +118,7 @@ export function Sidebar() {
         </div>
 
         {/* Navigation */}
-        <nav className="flex-1 px-4 py-1 overflow-auto">
+        <nav className="flex-1 px-4 py-1 overflow-y-auto min-h-0">
         {navItems.map((item) => {
           const isActive = pathname === item.href;
 
@@ -147,7 +147,7 @@ export function Sidebar() {
       </nav>
 
       {/* Daily Arena Card */}
-      <div className="px-4 pb-4">
+      <div className="px-4 pb-4 shrink-0">
         <div className="bg-[#12111a] rounded-2xl p-4 border border-white/5 shadow-lg relative overflow-hidden">
           {/* Subtle background glow */}
           <div className="absolute top-0 right-0 w-24 h-24 bg-purple-500/10 blur-2xl rounded-full pointer-events-none"></div>
@@ -183,7 +183,7 @@ export function Sidebar() {
       </div>
 
       {/* User Profile */}
-      <div ref={menuRef} className="relative p-4 pt-2 mt-auto border-t border-white/5">
+      <div ref={menuRef} className="relative p-4 pt-2 mt-auto border-t border-white/5 shrink-0">
 
         {/* Simple Dropdown Menu */}
         {isProfileOpen && (

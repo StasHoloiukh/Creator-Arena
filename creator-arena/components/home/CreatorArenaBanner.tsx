@@ -3,7 +3,7 @@ import { Flame } from "lucide-react";
 
 export function CreatorArenaBanner() {
   return (
-    <div className="lg:col-span-2 bg-[#12111a] rounded-3xl border border-white/5 p-6 sm:p-8 relative overflow-hidden flex flex-col md:flex-row items-center md:items-start justify-between min-h-80">
+    <div className="xl:col-span-2 bg-[#12111a] rounded-3xl border border-white/5 p-6 sm:p-8 relative overflow-hidden flex flex-col md:flex-row items-center md:items-start justify-between min-h-80">
       
       {/* Background Glow */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">

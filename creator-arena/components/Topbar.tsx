@@ -19,13 +19,14 @@ export function Topbar() {
     const levelData = getLevelData(progress.totalXp);
 
     return (
-        <header className="h-14 sm:h-17 w-full flex items-center justify-between px-3 sm:px-6 border-b border-white/5 bg-[#0a0a0f] sticky top-0 z-30">
+        <div className="sticky top-0 z-30 w-full flex flex-col">
+            <header className="h-14 sm:h-17 w-full flex items-center justify-between gap-4 md:gap-8 px-3 sm:px-6 md:px-8 border-b border-white/5 bg-[#0a0a0f]">
 
             {/* Left: Search & Mobile Menu */}
             <div className="flex-1 flex items-center gap-2 sm:gap-3">
                 <button 
                   onClick={() => window.dispatchEvent(new Event('toggle-sidebar'))}
-                  className="md:hidden p-2 -ml-1 text-[#8a8a99] hover:text-white transition-colors"
+                  className="lg:hidden p-2 -ml-1 text-[#8a8a99] hover:text-white transition-colors"
                 >
                   <Menu size={20} />
                 </button>
@@ -82,6 +83,19 @@ export function Topbar() {
                     </div>
                 </div>
             </div>
-        </header>
+            </header>
+
+            {/* Mobile Search Row */}
+            <div className="sm:hidden px-3 py-2 bg-[#0a0a0f] border-b border-white/5 w-full">
+                <div className="relative w-full">
+                    <Search size={14} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-[#8a8a99]" />
+                    <input
+                        type="text"
+                        placeholder="Search topics, creators, trends..."
+                        className="w-full h-9 bg-[#12111a] border border-white/5 rounded-xl pl-9 pr-4 text-[13px] text-white placeholder:text-[#8a8a99] focus:outline-none focus:border-white/10 focus:ring-1 focus:ring-white/10 transition-all"
+                    />
+                </div>
+            </div>
+        </div>
     );
 }
