@@ -50,7 +50,7 @@ export function Topbar() {
                 </div>
 
                 {/* Level / XP Badge */}
-                <div className="flex flex-col justify-center px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-xl bg-[#12111a] border border-purple-500/20 shadow-[0_0_10px_rgba(167,139,250,0.05)] cursor-pointer hover:bg-white/5 transition-colors min-w-[90px] sm:min-w-[130px]">
+                <div className="flex flex-col justify-center px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-xl bg-[#12111a] border border-purple-500/20 shadow-[0_0_10px_rgba(167,139,250,0.05)] cursor-pointer min-w-22.5 hover:bg-white/5 transition-colors  sm:min-w-32.5">
                     <div className="flex items-center justify-between mb-1 sm:mb-1.5 gap-2">
                         <span className="text-[10px] sm:text-[11px] font-black text-[#a78bfa] tracking-wider shrink-0">LVL {levelData.level}</span>
                         <span className="text-[9px] sm:text-[10px] text-[#8a8a99] font-medium whitespace-nowrap hidden sm:inline">

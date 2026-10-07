@@ -120,7 +120,7 @@ export function DashboardWidgets() {
             </span>
             <h2 className="text-[15px] sm:text-[16px] font-bold text-white">Active tests</h2>
           </div>
-          <Link href="/lab" className="text-[12px] font-medium text-[#8a8a99] hover:text-white transition-colors">
+          <Link href="/campaigns" className="text-[12px] font-medium text-[#8a8a99] hover:text-white transition-colors">
             All &rarr;
           </Link>
         </div>
