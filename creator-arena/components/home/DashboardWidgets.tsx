@@ -32,7 +32,7 @@ export function DashboardWidgets() {
     <div className="mt-4 sm:mt-6 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-6">
 
       {/* QUICK BATTLE */}
-      <div className="bg-[#12111a] border border-white/5 rounded-2xl sm:rounded-3xl p-5 sm:p-6 relative flex flex-col min-h-[300px] sm:min-h-[350px]">
+      <div className="bg-[#12111a] border border-white/5 rounded-2xl sm:rounded-3xl p-5 sm:p-6 relative flex flex-col min-h-75 sm:min-h-87.5">
         <div className="flex justify-between items-start mb-4 sm:mb-6">
           <div>
             <span className="text-[10px] sm:text-[11px] font-black text-[#8a8a99] tracking-widest uppercase mb-1 block">

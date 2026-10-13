@@ -6,7 +6,7 @@ import { getLevelData } from "@/lib/xp";
 
 // Mock user progress data (this will come from DB later)
 const mockUser = {
-    streak: 8,
+    streakdays: 8,
     totalXp: 1500,
     credits: 152
 };
@@ -46,7 +46,7 @@ export function Topbar() {
                 {/* Streak Badge */}
                 <div className="flex items-center gap-1 sm:gap-1.5 px-2.5 sm:px-3 rounded-full bg-[#12111a] border border-orange-500/20 shadow-[0_0_10px_rgba(249,115,22,0.1)] cursor-pointer hover:bg-white/5 transition-colors group">
                     <Flame size={14} className="sm:w-4 sm:h-4 text-orange-500 fill-orange-500/20 group-hover:scale-110 transition-transform" />
-                    <span className="text-[12px] sm:text-[13px] font-bold text-white group-hover:text-orange-50 transition-colors">{progress.streak}</span>
+                    <span className="text-[12px] sm:text-[13px] font-bold text-white group-hover:text-orange-50 transition-colors">{progress.streakdays}</span>
                 </div>
 
                 {/* Level / XP Badge */}

@@ -86,16 +86,10 @@ export function Sidebar() {
     <>
       {/* Mobile Backdrop */}
       {isMobileOpen && (
-        <div
-          className="fixed inset-0 bg-black/60 z-40 lg:hidden backdrop-blur-sm"
+        <button
+          type="button"
+          className="fixed inset-0 bg-black/60 z-40 lg:hidden backdrop-blur-sm w-full cursor-default"
           onClick={() => setIsMobileOpen(false)}
-          onKeyDown={(e) => {
-            if (e.key === 'Enter' || e.key === ' ') {
-              setIsMobileOpen(false);
-            }
-          }}
-          role="button"
-          tabIndex={0}
           aria-label="Close sidebar"
         />
       )}
