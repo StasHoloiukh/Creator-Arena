@@ -40,8 +40,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
-      <body className="min-h-screen flex text-text-main bg-bg-main">
+    <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`} suppressHydrationWarning>
+      <body className="min-h-screen flex text-text-main bg-bg-main" suppressHydrationWarning>
         <Sidebar />
         <main className="flex-1 flex flex-col ml-0 lg:ml-62.5 min-w-0 w-full transition-all duration-300">
           <Topbar />
